@@ -1,0 +1,8 @@
+<resources>
+    <string name="font2">Oswald-VariableFont_wght.ttf</string>
+    <string name="app_name">Poker Helper</string>
+    <string name="enter">Ввод данных</string>
+    <string name="value_app">Оценить приложение</string>
+    <string name="buy_PRO">Купить полную версию</string>
+    <string name="settings">Настройки</string>
+</resources>
