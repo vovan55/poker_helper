@@ -9,4 +9,5 @@
     <string name="enter_position">Ввод позиции</string>
     <string name="enter_cards">Ввод карт</string>
     <string name="tvResult">Вывод результата</string>
+    <string name="way_to_win">Путь к победе!</string>
 </resources>

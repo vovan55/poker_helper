@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-    <item android:title="Путь к победе!">
+    <item android:title="@string/way_to_win">
         <menu>
             <item android:title="@string/enter"
               android:id="@+id/id_enter"/>
