@@ -24,10 +24,14 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         ImageButton iBtnDiamonds = findViewById(R.id.iBtnDiamonds);
         ImageButton iBtnClubs = findViewById(R.id.iBtnClubs);
         ImageButton iBtnSpades = findViewById(R.id.iBtnSpades);
+        ImageButton iBtnHearts2 = findViewById(R.id.iBtnHearts2);
+        ImageButton iBtnDiamonds2 = findViewById(R.id.iBtnDiamonds2);
+        ImageButton iBtnClubs2 = findViewById(R.id.iBtnClubs2);
+        ImageButton iBtnSpades2 = findViewById(R.id.iBtnSpades2);
     }
     public void onClickClubs(View view)
     {
-        
+
     }
     public void onClickHearts(View view)
     {
@@ -38,6 +42,22 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
 
     }
     public void onClickSpades(View view)
+    {
+
+    }
+    public void onClickClubs2(View view)
+    {
+
+    }
+    public void onClickHearts2(View view)
+    {
+
+    }
+    public void onClickDiamonds2(View view)
+    {
+
+    }
+    public void onClickSpades2(View view)
     {
 
     }
