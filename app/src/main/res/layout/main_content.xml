@@ -46,8 +46,8 @@
 
     <Spinner
         android:id="@+id/spPosition"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,10 +84,10 @@
         android:id="@+id/tvPosition"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
         android:text="@string/enter_position"
         app:layout_constraintEnd_toEndOf="@+id/tvEnterBB"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/tvEnterBB"
         app:layout_constraintTop_toBottomOf="@+id/spBB" />
 
@@ -116,10 +116,11 @@
         app:layout_constraintVertical_bias="0.435" />
 
     <ImageButton
-        android:id="@+id/iBtn"
+        android:id="@+id/iBtnClubs"
         android:layout_width="44dp"
         android:layout_height="42dp"
         android:background="@android:drawable/screen_background_light_transparent"
+        android:contentDescription="TODO"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +131,7 @@
         app:srcCompat="@drawable/clubs" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/iBtnHearts"
         android:layout_width="44dp"
         android:layout_height="42dp"
         android:layout_marginTop="344dp"
@@ -143,22 +144,22 @@
         app:srcCompat="@drawable/hearts" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/iBtnDiamond"
         android:layout_width="44dp"
         android:layout_height="42dp"
         android:layout_marginTop="24dp"
         android:background="@android:drawable/screen_background_light_transparent"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+        app:layout_constraintEnd_toStartOf="@+id/iBtnSpades"
         app:layout_constraintHorizontal_bias="0.867"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iBtn"
+        app:layout_constraintTop_toBottomOf="@+id/iBtnClubs"
         app:layout_constraintVertical_bias="0.01"
         app:srcCompat="@drawable/diamond" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/iBtnSpades"
         android:layout_width="44dp"
         android:layout_height="42dp"
         android:layout_marginEnd="52dp"
@@ -166,7 +167,7 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/iBtnHearts"
         app:layout_constraintVertical_bias="0.089"
         app:srcCompat="@drawable/spades" />
 </androidx.constraintlayout.widget.ConstraintLayout>
