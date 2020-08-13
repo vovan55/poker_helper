@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="позиция">
+        <item>
+            EP1
+        </item>
+        <item>
+            EP2
+        </item>
+        <item>
+            EP3
+        </item>
+        <item>
+            MP1
+        </item>
+        <item>
+            MP2
+        </item>
+        <item>
+            HJ
+        </item>
+        <item>
+            CO
+        </item>
+        <item>
+            BTN
+        </item>
+        <item>
+            SB
+        </item>
+
+    </string-array>
+</resources>
