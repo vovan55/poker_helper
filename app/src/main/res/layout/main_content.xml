@@ -124,50 +124,53 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintHorizontal_bias="0.664"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
+        app:layout_constraintVertical_bias="0.515"
         app:srcCompat="@drawable/clubs" />
 
     <ImageButton
         android:id="@+id/iBtnHearts"
         android:layout_width="44dp"
         android:layout_height="42dp"
-        android:layout_marginTop="344dp"
         android:background="@android:drawable/screen_background_light_transparent"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.847"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515"
         app:srcCompat="@drawable/hearts" />
 
     <ImageButton
         android:id="@+id/iBtnDiamond"
         android:layout_width="44dp"
         android:layout_height="42dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:background="@android:drawable/screen_background_light_transparent"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iBtnSpades"
-        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.664"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iBtnClubs"
-        app:layout_constraintVertical_bias="0.01"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/diamond" />
 
     <ImageButton
         android:id="@+id/iBtnSpades"
         android:layout_width="44dp"
         android:layout_height="42dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginTop="28dp"
         android:background="@android:drawable/screen_background_light_transparent"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.847"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iBtnHearts"
-        app:layout_constraintVertical_bias="0.089"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/spades" />
 </androidx.constraintlayout.widget.ConstraintLayout>
