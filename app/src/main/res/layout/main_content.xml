@@ -120,7 +120,6 @@
         android:layout_width="44dp"
         android:layout_height="42dp"
         android:background="@android:drawable/screen_background_light_transparent"
-        android:contentDescription="TODO"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,6 +127,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.515"
+        android:onClick="onClickClubs"
         app:srcCompat="@drawable/clubs" />
 
     <ImageButton
@@ -142,10 +142,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.515"
+        android:onClick="onClickHearts"
         app:srcCompat="@drawable/hearts" />
 
     <ImageButton
-        android:id="@+id/iBtnDiamond"
+        android:id="@+id/iBtnDiamonds"
         android:layout_width="44dp"
         android:layout_height="42dp"
         android:layout_marginTop="28dp"
@@ -157,6 +158,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iBtnClubs"
         app:layout_constraintVertical_bias="0.0"
+        android:onClick="onClickDiamonds"
         app:srcCompat="@drawable/diamond" />
 
     <ImageButton
@@ -172,5 +174,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iBtnHearts"
         app:layout_constraintVertical_bias="0.0"
+        android:onClick="onClickSpades"
         app:srcCompat="@drawable/spades" />
 </androidx.constraintlayout.widget.ConstraintLayout>
