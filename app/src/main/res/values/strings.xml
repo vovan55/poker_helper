@@ -11,4 +11,5 @@
     <string name="enter_card_2">Выберите карту 2</string>
     <string name="tvResult">Вывод результата</string>
     <string name="way_to_win">Путь к победе!</string>
+    <string name="calculate">Расчет</string>
 </resources>

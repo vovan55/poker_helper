@@ -5,7 +5,10 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavItemSelectedListener{
@@ -28,6 +31,12 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         ImageButton iBtnDiamonds2 = findViewById(R.id.iBtnDiamonds2);
         ImageButton iBtnClubs2 = findViewById(R.id.iBtnClubs2);
         ImageButton iBtnSpades2 = findViewById(R.id.iBtnSpades2);
+        ImageView tvBB = findViewById(R.id.tvBB);
+        ImageView tvPos = findViewById(R.id.tvPos);
+        ImageView tvCard1 = findViewById(R.id.tvCard1);
+        ImageView tvCard2 = findViewById(R.id.tvCard2);
+        Button btnCalc = findViewById(R.id.btnCalc);
+        TextView tvResult = findViewById(R.id.tvResult);
     }
     public void onClickClubs(View view)
     {
