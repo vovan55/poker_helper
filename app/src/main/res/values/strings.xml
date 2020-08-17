@@ -5,10 +5,10 @@
     <string name="value_app">Оценить приложение</string>
     <string name="buy_PRO">Купить полную версию</string>
     <string name="settings">Настройки</string>
-    <string name="enterBB">Введите свой стэк в блаиндах</string>
-    <string name="enter_position">Выберите свою позицию</string>
-    <string name="enter_cards">Выберите карты</string>
-    <string name="enter_cards_suit">Выберите масть</string>
+    <string name="enterBB">Ваш стэк в ББ</string>
+    <string name="enter_position">Ваша позиция</string>
+    <string name="enter_card_1">Выберите карту 1</string>
+    <string name="enter_card_2">Выберите карту 2</string>
     <string name="tvResult">Вывод результата</string>
     <string name="way_to_win">Путь к победе!</string>
 </resources>

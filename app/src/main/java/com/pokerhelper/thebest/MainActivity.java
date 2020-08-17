@@ -31,35 +31,36 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     }
     public void onClickClubs(View view)
     {
+        Toast.makeText(this, "Зачем ты это нажал трефи?", Toast.LENGTH_SHORT).show();
 
     }
     public void onClickHearts(View view)
     {
-
+        Toast.makeText(this, "Зачем ты это нажал черви?", Toast.LENGTH_SHORT).show();
     }
     public void onClickDiamonds(View view)
     {
-
+        Toast.makeText(this, "Зачем ты это нажал бубны?", Toast.LENGTH_SHORT).show();
     }
     public void onClickSpades(View view)
     {
-
+        Toast.makeText(this, "Зачем ты это нажал пики?", Toast.LENGTH_SHORT).show();
     }
     public void onClickClubs2(View view)
     {
-
+        Toast.makeText(this, "Зачем ты это нажал трефи?", Toast.LENGTH_SHORT).show();
     }
     public void onClickHearts2(View view)
     {
-
+        Toast.makeText(this, "Зачем ты это нажал черви?", Toast.LENGTH_SHORT).show();
     }
     public void onClickDiamonds2(View view)
     {
-
+        Toast.makeText(this, "Зачем ты это нажал бубны?", Toast.LENGTH_SHORT).show();
     }
     public void onClickSpades2(View view)
     {
-
+        Toast.makeText(this, "Зачем ты это нажал пики?", Toast.LENGTH_SHORT).show();
     }
 
 
