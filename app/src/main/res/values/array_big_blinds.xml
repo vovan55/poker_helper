@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="большие_блаинды">
+    <string-array name="big_blinds">
         <item>
            1
         </item>

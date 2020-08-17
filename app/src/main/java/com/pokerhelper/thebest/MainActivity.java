@@ -5,24 +5,58 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavItemSelectedListener{
-
+    TextView textCard1, textCard2;
+    String[] card1 = {"2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"};
+    String[] card2 = {"2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"};
+    String[] big_blinds = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
+    String[] position = {"EP1", "EP2", "EP3", "MP1", "MP2", "HJ", "CO", "BTN", "SB"};
+    Spinner spBB, spPosition, spCard1, spCard2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Spinner spBB = (Spinner) findViewById(R.id.spBB);
+        final TextView textCard1 = findViewById(R.id.textCard1);
+        final ImageView tvBB = findViewById(R.id.tvBB);
         init();
         setupMenu();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, big_blinds);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spBB.setAdapter(adapter);
+
+        AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                // Получаем выбранный объект
+                String item = (String) parent.getItemAtPosition(position);
+                textCard1.setText(item);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        };
+        spBB.setOnItemSelectedListener(itemSelectedListener);
     }
+
+
     private void init()
     {
+        TextView textCard1 = findViewById(R.id.textCard1);
+        TextView textCard2 = findViewById(R.id.textCard2);
         ImageButton iBtnHearts = findViewById(R.id.iBtnHearts);
         ImageButton iBtnDiamonds = findViewById(R.id.iBtnDiamonds);
         ImageButton iBtnClubs = findViewById(R.id.iBtnClubs);
@@ -37,7 +71,13 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         ImageView tvCard2 = findViewById(R.id.tvCard2);
         Button btnCalc = findViewById(R.id.btnCalc);
         TextView tvResult = findViewById(R.id.tvResult);
+        Spinner spBB = (Spinner) findViewById(R.id.spBB);
+        Spinner spPosition = findViewById(R.id.spPosition);
+        Spinner spCard1 = findViewById(R.id.spCard1);
+        Spinner spCard2 = findViewById(R.id.spCard2);
     }
+
+
     public void onClickClubs(View view)
     {
         Toast.makeText(this, "Зачем ты это нажал трефи?", Toast.LENGTH_SHORT).show();
