@@ -2,6 +2,9 @@
 <resources>
     <string-array name="card_2">
         <item>
+           Выберите карту
+        </item>
+        <item>
            2
         </item>
         <item>

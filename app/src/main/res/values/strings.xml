@@ -7,8 +7,8 @@
     <string name="settings">Настройки</string>
     <string name="enterBB">Ваш стэк в ББ</string>
     <string name="enter_position">Ваша позиция</string>
-    <string name="enter_card_1">Выберите карту 1</string>
-    <string name="enter_card_2">Выберите карту 2</string>
+    <string name="spCard_1">Выберите карту 1</string>
+    <string name="spCard_2">Выберите карту 2</string>
     <string name="tvResult">Вывод результата</string>
     <string name="way_to_win">Путь к победе!</string>
     <string name="calculate">Расчет</string>

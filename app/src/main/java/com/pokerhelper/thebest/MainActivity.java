@@ -15,13 +15,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavItemSelectedListener{
-    TextView textCard1, textCard2, tvEnterBB, tvEnterPos;
+    TextView textCard1, textCard2;
+    String suit, suit_2;
     String[] card1 = {"2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"};
     String[] card2 = {"2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"};
     String[] big_blinds = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
     String[] position = {"EP1", "EP2", "EP3", "MP1", "MP2", "HJ", "CO", "BTN", "SB"};
-    Spinner spBB, spPos, spCard1, spCard2;
-    ImageView tvCard1, tvCard2, iBtnClubs;
+    Spinner spBB, spPos, spCard_1, spCard_2;
+    ImageView tvCard1, tvCard2;
+    private ImageButton iBtnHearts, iBtnDiamonds, iBtnSpades, iBtnClubs, iBtnHearts2, iBtnDiamonds2, iBtnSpades2, iBtnClubs2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
 
                 // Получаем выбранный объект
                 String item = (String) parent.getItemAtPosition(position);
-                tvEnterPos.setText(item);
+                //tvEnterPos.setText(item);
             }
 
             @Override
@@ -76,59 +78,98 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     {   spBB = (Spinner) findViewById(R.id.spBB);
         spPos = (Spinner) findViewById(R.id.spPos);
         //tvEnterBB = findViewById(R.id.tvEnterBB);
-        tvEnterPos = findViewById(R.id.tvEnterPos);
-        textCard1 = findViewById(R.id.textCard1);
-        textCard2 = findViewById(R.id.textCard2);
-        ImageButton iBtnHearts = findViewById(R.id.iBtnHearts);
-        ImageButton iBtnDiamonds = findViewById(R.id.iBtnDiamonds);
+        //tvEnterPos = findViewById(R.id.tvEnterPos);
+        spCard_1 = findViewById(R.id.spCard_1);
+        spCard_2 = findViewById(R.id.spCard_2);
+        iBtnHearts = findViewById(R.id.iBtnHearts);
+        iBtnDiamonds = findViewById(R.id.iBtnDiamonds);
         iBtnClubs = findViewById(R.id.iBtnClubs);
-        ImageButton iBtnSpades = findViewById(R.id.iBtnSpades);
-        ImageButton iBtnHearts2 = findViewById(R.id.iBtnHearts2);
-        ImageButton iBtnDiamonds2 = findViewById(R.id.iBtnDiamonds2);
-        ImageButton iBtnClubs2 = findViewById(R.id.iBtnClubs2);
-        ImageButton iBtnSpades2 = findViewById(R.id.iBtnSpades2);
+        iBtnSpades = findViewById(R.id.iBtnSpades);
+        iBtnHearts2 = findViewById(R.id.iBtnHearts2);
+        iBtnDiamonds2 = findViewById(R.id.iBtnDiamonds2);
+        iBtnClubs2 = findViewById(R.id.iBtnClubs2);
+        iBtnSpades2 = findViewById(R.id.iBtnSpades2);
         ImageView tvCard1 = findViewById(R.id.tvCard1);
         ImageView tvCard2 = findViewById(R.id.tvCard2);
         Button btnCalc = findViewById(R.id.btnCalc);
         TextView tvResult = findViewById(R.id.tvResult);
         spBB = (Spinner) findViewById(R.id.spBB);
         spPos = findViewById(R.id.spPos);
-        spCard1 = findViewById(R.id.spCard1);
-        spCard2 = findViewById(R.id.spCard2);
+
     }
 
 
     public void onClickClubs(View view)
     {
-        Toast.makeText(this, "Зачем ты это нажал трефи?", Toast.LENGTH_SHORT).show();
+        suit = "clubs";
+        iBtnClubs.setAlpha(1.0f);
+        iBtnDiamonds.setAlpha(0.5f);
+        iBtnHearts.setAlpha(0.5f);
+        iBtnSpades.setAlpha(0.5f);
+        //Toast.makeText(this, "Зачем ты это нажал трефи?", Toast.LENGTH_SHORT).show();
     }
     public void onClickHearts(View view)
     {
-        Toast.makeText(this, "Зачем ты это нажал черви?", Toast.LENGTH_SHORT).show();
+        suit = "hearts";
+        iBtnClubs.setAlpha(0.5f);
+        iBtnDiamonds.setAlpha(0.5f);
+        iBtnHearts.setAlpha(1.0f);
+        iBtnSpades.setAlpha(0.5f);
+        //Toast.makeText(this, "Зачем ты это нажал черви?", Toast.LENGTH_SHORT).show();
     }
     public void onClickDiamonds(View view)
     {
-        Toast.makeText(this, "Зачем ты это нажал бубны?", Toast.LENGTH_SHORT).show();
+        suit = "diamonds";
+        iBtnClubs.setAlpha(0.5f);
+        iBtnDiamonds.setAlpha(1.0f);
+        iBtnHearts.setAlpha(0.5f);
+        iBtnSpades.setAlpha(0.5f);
+        //Toast.makeText(this, "Зачем ты это нажал бубны?", Toast.LENGTH_SHORT).show();
     }
     public void onClickSpades(View view)
     {
-        Toast.makeText(this, "Зачем ты это нажал пики?", Toast.LENGTH_SHORT).show();
+        suit = "spades";
+        iBtnClubs.setAlpha(0.5f);
+        iBtnDiamonds.setAlpha(0.5f);
+        iBtnHearts.setAlpha(0.5f);
+        iBtnSpades.setAlpha(1.0f);
+        //Toast.makeText(this, "Зачем ты это нажал пики?", Toast.LENGTH_SHORT).show();
     }
     public void onClickClubs2(View view)
     {
-        Toast.makeText(this, "Зачем ты это нажал трефи?", Toast.LENGTH_SHORT).show();
+        suit_2 = "clubs2";
+        iBtnClubs2.setAlpha(1.0f);
+        iBtnDiamonds2.setAlpha(0.5f);
+        iBtnHearts2.setAlpha(0.5f);
+        iBtnSpades2.setAlpha(0.5f);
+        //Toast.makeText(this, "Зачем ты это нажал трефи?", Toast.LENGTH_SHORT).show();
     }
     public void onClickHearts2(View view)
     {
-        Toast.makeText(this, "Зачем ты это нажал черви?", Toast.LENGTH_SHORT).show();
+        suit_2 = "hearts2";
+        iBtnClubs2.setAlpha(0.5f);
+        iBtnDiamonds2.setAlpha(0.5f);
+        iBtnHearts2.setAlpha(1.0f);
+        iBtnSpades2.setAlpha(0.5f);
+        //Toast.makeText(this, "Зачем ты это нажал черви?", Toast.LENGTH_SHORT).show();
     }
     public void onClickDiamonds2(View view)
     {
-        Toast.makeText(this, "Зачем ты это нажал бубны?", Toast.LENGTH_SHORT).show();
+        suit_2 = "diamonds2";
+        iBtnClubs2.setAlpha(0.5f);
+        iBtnDiamonds2.setAlpha(1.0f);
+        iBtnHearts2.setAlpha(0.5f);
+        iBtnSpades2.setAlpha(0.5f);
+        //Toast.makeText(this, "Зачем ты это нажал бубны?", Toast.LENGTH_SHORT).show();
     }
     public void onClickSpades2(View view)
     {
-        Toast.makeText(this, "Зачем ты это нажал пики?", Toast.LENGTH_SHORT).show();
+        suit_2 = "spades2";
+        iBtnClubs2.setAlpha(0.5f);
+        iBtnDiamonds2.setAlpha(0.5f);
+        iBtnHearts2.setAlpha(0.5f);
+        iBtnSpades2.setAlpha(1.0f);
+        //Toast.makeText(this, "Зачем ты это нажал пики?", Toast.LENGTH_SHORT).show();
     }
 
 

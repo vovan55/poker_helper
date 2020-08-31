@@ -6,50 +6,19 @@
     android:layout_height="match_parent"
     android:onClick="onClickCalc">
 
-    <ImageButton
-        android:id="@+id/iBtnHearts2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@android:drawable/screen_background_light_transparent"
-        android:onClick="onClickHearts2"
-        android:scaleType="centerInside"
+    <Spinner
+        android:id="@+id/spPos"
+        android:layout_width="75dp"
+        android:layout_height="45dp"
+        android:background="@drawable/spinner_background"
+        android:entries="@array/big_blinds"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iBtnClubs2"
-        app:layout_constraintVertical_bias="0.033"
-        app:srcCompat="@drawable/hearts" />
-
-    <ImageButton
-        android:id="@+id/iBtnDiamonds2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@android:drawable/screen_background_light_transparent"
-        android:onClick="onClickDiamonds2"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.328"
-        app:srcCompat="@drawable/diamond" />
-
-    <ImageButton
-        android:id="@+id/iBtnSpades2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@android:drawable/screen_background_light_transparent"
-        android:onClick="onClickSpades2"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39"
-        app:srcCompat="@drawable/spades" />
+        app:layout_constraintVertical_bias="0.081" />
 
     <ImageButton
         android:id="@+id/iBtnClubs2"
@@ -60,64 +29,71 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.695"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.326"
+        app:layout_constraintVertical_bias="0.251"
         app:srcCompat="@drawable/clubs" />
 
     <ImageButton
-        android:id="@+id/iBtnSpades"
+        android:id="@+id/iBtnSpades2"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@android:drawable/screen_background_light_transparent"
-        android:onClick="onClickSpades"
+        android:onClick="onClickSpades2"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39"
+        app:layout_constraintVertical_bias="0.315"
         app:srcCompat="@drawable/spades" />
 
-    <Spinner
-        android:id="@+id/spCard2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:entries="@array/card_2"
-        android:spinnerMode="dropdown"
+    <ImageButton
+        android:id="@+id/iBtnDiamonds2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:onClick="onClickDiamonds2"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.634"
+        app:layout_constraintHorizontal_bias="0.853"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.336" />
+        app:layout_constraintVertical_bias="0.252"
+        app:srcCompat="@drawable/diamond" />
 
-    <Spinner
-        android:id="@+id/spCard1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:entries="@array/card_1"
-        android:spinnerMode="dropdown"
+    <ImageButton
+        android:id="@+id/iBtnHearts2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:onClick="onClickHearts2"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintHorizontal_bias="0.695"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintTop_toBottomOf="@+id/iBtnClubs2"
+        app:layout_constraintVertical_bias="0.03"
+        app:srcCompat="@drawable/hearts" />
 
     <Spinner
         android:id="@+id/spBB"
         android:layout_width="75dp"
         android:layout_height="45dp"
         android:layout_marginStart="72dp"
-        android:layout_marginTop="56dp"
         android:background="@drawable/spinner_background"
         android:entries="@array/big_blinds"
         android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spPos"
+        app:layout_constraintHorizontal_bias="0.037"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.081" />
 
     <TextView
         android:id="@+id/tvResult"
@@ -162,33 +138,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.035" />
 
-    <TextView
-        android:id="@+id/textCard1"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:text="@string/enter_card_1"
-        android:textColor="#090909"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textCard2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266" />
-
-    <TextView
-        android:id="@+id/textCard2"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="@string/enter_card_2"
-        android:textColor="#090909"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.848"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
-
     <ImageButton
         android:id="@+id/iBtnClubs"
         android:layout_width="30dp"
@@ -198,10 +147,10 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.328"
+        app:layout_constraintVertical_bias="0.251"
         app:srcCompat="@drawable/clubs" />
 
     <ImageButton
@@ -213,10 +162,10 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.328"
+        app:layout_constraintVertical_bias="0.251"
         app:srcCompat="@drawable/diamond" />
 
     <ImageButton
@@ -229,36 +178,51 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iBtnClubs"
-        app:layout_constraintVertical_bias="0.013"
+        app:layout_constraintVertical_bias="0.012"
         app:srcCompat="@drawable/hearts" />
+
+    <ImageButton
+        android:id="@+id/iBtnSpades"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:onClick="onClickSpades"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.312"
+        app:srcCompat="@drawable/spades" />
 
     <ImageView
         android:id="@+id/tvCard1"
         android:layout_width="131dp"
         android:layout_height="210dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.648"
+        app:layout_constraintVertical_bias="0.595"
         app:srcCompat="@drawable/ace_of_diamonds" />
 
     <ImageView
         android:id="@+id/tvCard2"
         android:layout_width="131dp"
         android:layout_height="210dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintHorizontal_bias="0.965"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.648"
+        app:layout_constraintVertical_bias="0.595"
         app:srcCompat="@drawable/ace_of_diamonds" />
 
     <Button
@@ -274,31 +238,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.894" />
 
-    <TextView
-        android:id="@+id/tvEnterPos"
-        android:layout_width="84dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="16dp"
-        android:shadowColor="#77B2E3"
-        android:shadowDx="3"
-        android:shadowDy="3"
-        android:shadowRadius="3"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="36sp"
-        android:textStyle="bold"
+    <Spinner
+        android:id="@+id/spCard_1"
+        android:layout_width="189dp"
+        android:layout_height="25dp"
+        android:entries="@array/card_1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.184" />
 
     <Spinner
-        android:id="@+id/spPos"
-        android:layout_width="43dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="64dp"
-        android:background="@drawable/spinner_background"
+        android:id="@+id/spCard_2"
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/card_2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.645"
+        app:layout_constraintHorizontal_bias="0.981"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.183" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
