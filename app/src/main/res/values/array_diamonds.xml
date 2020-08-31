@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="diamonds">
+        <item>
+            2_of_diamonds.png
+        </item>
+        <item>
+            3_of_diamonds.png
+        </item>
+        <item>
+            4_of_diamonds.png
+        </item>
+        <item>
+            5_of_diamonds.png
+        </item>
+        <item>
+            6_of_diamonds.png
+        </item>
+        <item>
+            7_of_diamonds.png
+        </item>
+        <item>
+            8_of_diamonds.png
+        </item>
+        <item>
+            9_of_diamonds.png
+        </item>
+        <item>
+            10_of_diamonds.png
+        </item>
+        <item>
+            jack_of_diamonds.png
+        </item>
+        <item>
+            queen_of_diamonds.png
+        </item>
+        <item>
+            king_of_diamonds.png
+        </item>
+        <item>
+            ace_of_diamonds.png
+        </item>
+    </string-array>
+</resources>
