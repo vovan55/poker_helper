@@ -12,5 +12,14 @@
     <string name="tvResult">Вывод результата</string>
     <string name="way_to_win">Путь к победе!</string>
     <string name="calculate">Расчет</string>
-    <string name="iBtnClubs2">Выбор крестовой масти 2</string>
+    <string name="iBtnClubs2">icon clubs 2</string>
+    <string name="iBtnDiamonds2">icon diamonds 2</string>
+    <string name="iBtnHearts2">icon hearts 2</string>
+    <string name="iBtnSplades2">icon splades 2</string>
+    <string name="iBtnClubs">icon clubs</string>
+    <string name="iBtnDiamonds">icon diamonds</string>
+    <string name="iBtnHearts">icon hearts</string>
+    <string name="iBtnSplades">icon splades</string>
+    <string name="tvCard1">show card 1</string>
+    <string name="tvCard2">show card 2</string>
 </resources>
