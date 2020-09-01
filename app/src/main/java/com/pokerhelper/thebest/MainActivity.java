@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +22,8 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     String[] card2 = {"2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"};
     String[] big_blinds = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
     String[] position = {"EP1", "EP2", "EP3", "MP1", "MP2", "HJ", "CO", "BTN", "SB"};
-    Spinner spBB, spPos, spCard_1, spCard_2;
+    Spinner spPos, spCard_1, spCard_2;
+    NumberPicker numberPicker;
     ImageView tvCard1, tvCard2;
     private ImageButton iBtnHearts, iBtnDiamonds, iBtnSpades, iBtnClubs, iBtnHearts2, iBtnDiamonds2, iBtnSpades2, iBtnClubs2;
 
@@ -33,9 +35,9 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         init();
         setupMenu();
 
-        ArrayAdapter<String> adapter_bb = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, big_blinds);
+/*        ArrayAdapter<String> adapter_bb = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, big_blinds);
         adapter_bb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spBB.setAdapter(adapter_bb);
+        //spBB.setAdapter(adapter_bb);
 
         AdapterView.OnItemSelectedListener itemSelectedListener_bb = new AdapterView.OnItemSelectedListener() {
             @Override
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
 
             }
         };
-        spBB.setOnItemSelectedListener(itemSelectedListener_bb);
+        spBB.setOnItemSelectedListener(itemSelectedListener_bb);*/
 
         ArrayAdapter<String> adapter_pos = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, position);
         adapter_pos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -75,7 +77,9 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     }
 
     private void init()
-    {   spBB = (Spinner) findViewById(R.id.spBB);
+    {   numberPicker = (NumberPicker) findViewById(R.id.spBB);
+        numberPicker.setMaxValue(20);
+        numberPicker.setMinValue(0);
         spPos = (Spinner) findViewById(R.id.spPos);
         //tvEnterBB = findViewById(R.id.tvEnterBB);
         //tvEnterPos = findViewById(R.id.tvEnterPos);
@@ -93,8 +97,6 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         ImageView tvCard2 = findViewById(R.id.tvCard2);
         Button btnCalc = findViewById(R.id.btnCalc);
         TextView tvResult = findViewById(R.id.tvResult);
-        spBB = (Spinner) findViewById(R.id.spBB);
-        spPos = findViewById(R.id.spPos);
 
     }
 

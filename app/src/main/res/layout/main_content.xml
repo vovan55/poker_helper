@@ -10,10 +10,13 @@
         android:id="@+id/spPos"
         android:layout_width="75dp"
         android:layout_height="45dp"
-        android:layout_marginStart="136dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginEnd="56dp"
         android:background="@drawable/spinner_background"
         android:entries="@array/big_blinds"
         android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/spBB"
         app:layout_constraintTop_toTopOf="@+id/spBB" />
 
@@ -22,13 +25,13 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="32dp"
         android:background="@android:drawable/screen_background_light_transparent"
         android:contentDescription="@string/iBtnClubs2"
         android:onClick="onClickClubs2"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="@+id/spCard_2"
-        app:layout_constraintTop_toTopOf="@+id/spCard_2"
+        app:layout_constraintTop_toBottomOf="@+id/spCard_2"
         app:srcCompat="@drawable/clubs" />
 
     <ImageButton
@@ -40,6 +43,8 @@
         android:contentDescription="@string/iBtnDiamonds2"
         android:onClick="onClickDiamonds2"
         android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iBtnClubs2"
         app:layout_constraintTop_toTopOf="@+id/iBtnClubs2"
         app:srcCompat="@drawable/diamond" />
@@ -70,17 +75,16 @@
         app:layout_constraintTop_toTopOf="@+id/iBtnHearts2"
         app:srcCompat="@drawable/spades" />
 
-    <Spinner
+    <NumberPicker
         android:id="@+id/spBB"
-        android:layout_width="75dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/spinner_background"
-        android:entries="@array/big_blinds"
         android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="@+id/tvBB"
-        app:layout_constraintTop_toTopOf="@+id/tvBB" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBB" />
 
     <TextView
         android:id="@+id/tvResult"
@@ -96,8 +100,8 @@
         android:id="@+id/tvBB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
         android:text="@string/enterBB"
         android:textColor="#090909"
         android:textStyle="bold"
@@ -109,9 +113,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="112dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/enter_position"
         android:textColor="#090909"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.846"
         app:layout_constraintStart_toEndOf="@+id/tvBB"
         app:layout_constraintTop_toTopOf="@+id/tvBB" />
 
@@ -120,13 +127,13 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/clubs"
         android:contentDescription="@string/iBtnClubs"
         android:onClick="onClickClubs"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="@+id/spCard_1"
-        app:layout_constraintTop_toTopOf="@+id/spCard_1"
+        app:layout_constraintTop_toBottomOf="@+id/spCard_1"
         app:srcCompat="@drawable/pressed_clubs" />
 
     <ImageButton
@@ -195,23 +202,23 @@
         android:id="@+id/btnCalc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="44dp"
         android:onClick="onClickCalc"
         android:text="@string/calculate"
         app:layout_constraintStart_toStartOf="@+id/tvCard1"
-        app:layout_constraintTop_toTopOf="@+id/tvCard1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCard1" />
 
     <Spinner
         android:id="@+id/spCard_1"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/spinner_background"
         android:entries="@array/card_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spBB" />
+        app:layout_constraintTop_toBottomOf="@+id/spBB" />
 
     <Spinner
         android:id="@+id/spCard_2"
