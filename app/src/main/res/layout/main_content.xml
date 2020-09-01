@@ -26,20 +26,20 @@
         android:layout_height="30dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
-        android:background="@android:drawable/screen_background_light_transparent"
+        android:background="@drawable/pressed_clubs"
         android:contentDescription="@string/iBtnClubs2"
         android:onClick="onClickClubs2"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="@+id/spCard_2"
         app:layout_constraintTop_toBottomOf="@+id/spCard_2"
-        app:srcCompat="@drawable/pressed_clubs" />
+        app:srcCompat="@drawable/clubs" />
 
     <ImageButton
         android:id="@+id/iBtnDiamonds2"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
-        android:background="@android:drawable/screen_background_light_transparent"
+        android:background="@drawable/pressed_diamond"
         android:contentDescription="@string/iBtnDiamonds2"
         android:onClick="onClickDiamonds2"
         android:scaleType="centerInside"
@@ -54,7 +54,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="44dp"
-        android:background="@android:drawable/screen_background_light_transparent"
+        android:background="@drawable/pressed_hearts"
         android:contentDescription="@string/iBtnHearts2"
         android:onClick="onClickHearts2"
         android:scaleType="centerInside"
@@ -67,7 +67,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
-        android:background="@android:drawable/screen_background_light_transparent"
+        android:background="@drawable/pressed_spades"
         android:contentDescription="@string/iBtnSplades2"
         android:onClick="onClickSpades2"
         android:scaleType="centerInside"
@@ -130,52 +130,52 @@
         android:layout_height="30dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/clubs"
+        android:background="@drawable/pressed_clubs"
         android:contentDescription="@string/iBtnClubs"
         android:onClick="onClickClubs"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="@+id/spCard_1"
         app:layout_constraintTop_toBottomOf="@+id/spCard_1"
-        app:srcCompat="@drawable/pressed_clubs" />
+        app:srcCompat="@drawable/clubs" />
 
     <ImageButton
         android:id="@+id/iBtnHearts"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="44dp"
-        android:background="@drawable/hearts"
+        android:background="@drawable/pressed_hearts"
         android:contentDescription="@string/iBtnHearts"
         android:onClick="onClickHearts"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="@+id/iBtnClubs"
         app:layout_constraintTop_toTopOf="@+id/iBtnClubs"
-        app:srcCompat="@drawable/pressed_hearts" />
+        app:srcCompat="@drawable/hearts" />
 
     <ImageButton
         android:id="@+id/iBtnSpades"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
-        android:background="@drawable/spades"
+        android:background="@drawable/pressed_spades"
         android:contentDescription="@string/iBtnSplades"
         android:onClick="onClickSpades"
         android:scaleType="centerInside"
         app:layout_constraintStart_toEndOf="@+id/iBtnHearts"
         app:layout_constraintTop_toTopOf="@+id/iBtnHearts"
-        app:srcCompat="@drawable/pressed_spades" />
+        app:srcCompat="@drawable/spades" />
 
     <ImageButton
         android:id="@+id/iBtnDiamonds"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
-        android:background="@drawable/diamond"
+        android:background="@drawable/pressed_diamond"
         android:contentDescription="@string/iBtnDiamonds"
         android:onClick="onClickDiamonds"
         android:scaleType="centerInside"
         app:layout_constraintStart_toEndOf="@+id/iBtnClubs"
         app:layout_constraintTop_toTopOf="@+id/iBtnClubs"
-        app:srcCompat="@drawable/pressed_diamond" />
+        app:srcCompat="@drawable/diamond" />
 
     <ImageView
         android:id="@+id/tvCard1"
