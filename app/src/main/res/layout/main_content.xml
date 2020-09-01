@@ -8,15 +8,15 @@
     <Spinner
         android:id="@+id/spPos"
         android:layout_width="75dp"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:layout_marginStart="140dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="56dp"
         android:background="@drawable/spinner_background"
         android:entries="@array/big_blinds"
         android:foregroundGravity="center"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/spBB"
         app:layout_constraintTop_toTopOf="@+id/spBB" />
 
@@ -77,13 +77,14 @@
 
     <NumberPicker
         android:id="@+id/spBB"
-        android:layout_width="75dp"
-        android:layout_height="45dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:solidColor="@color/spBBcolor"
         android:spinnerMode="dropdown"
+        android:theme="@style/NumberPickerText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvBB" />
 
@@ -142,7 +143,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="44dp"
-        android:background="@android:drawable/screen_background_light_transparent"
+        android:background="@drawable/hearts"
         android:contentDescription="@string/iBtnHearts"
         android:onClick="onClickHearts"
         android:scaleType="centerInside"
@@ -155,7 +156,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
-        android:background="@android:drawable/screen_background_light_transparent"
+        android:background="@drawable/spades"
         android:contentDescription="@string/iBtnSplades"
         android:onClick="onClickSpades"
         android:scaleType="centerInside"
@@ -168,7 +169,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
-        android:background="@android:drawable/screen_background_light_transparent"
+        android:background="@drawable/diamond"
         android:contentDescription="@string/iBtnDiamonds"
         android:onClick="onClickDiamonds"
         android:scaleType="centerInside"
@@ -230,7 +231,7 @@
         android:background="@drawable/spinner_background"
         android:entries="@array/card_2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/spCard_1"
         app:layout_constraintTop_toTopOf="@+id/spCard_1" />
 
