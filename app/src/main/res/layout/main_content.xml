@@ -77,11 +77,13 @@
 
     <NumberPicker
         android:id="@+id/spBB"
-        android:layout_width="55dp"
-        android:layout_height="51dp"
+        android:layout_width="62dp"
+        android:layout_height="58dp"
         android:layout_marginStart="56dp"
         android:layout_marginTop="28dp"
-        android:background="@drawable/spinner_background"
+        android:background="@drawable/ic_arrow_drop_down_24"
+        android:gravity="center"
+        android:solidColor="@color/spBBcolor"
         android:spinnerMode="dropdown"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvBB" />
