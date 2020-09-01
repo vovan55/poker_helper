@@ -47,7 +47,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iBtnClubs2"
         app:layout_constraintTop_toTopOf="@+id/iBtnClubs2"
-        app:srcCompat="@drawable/diamond" />
+        app:srcCompat="@drawable/diamonds" />
 
     <ImageButton
         android:id="@+id/iBtnHearts2"
@@ -175,7 +175,7 @@
         android:scaleType="centerInside"
         app:layout_constraintStart_toEndOf="@+id/iBtnClubs"
         app:layout_constraintTop_toTopOf="@+id/iBtnClubs"
-        app:srcCompat="@drawable/diamond" />
+        app:srcCompat="@drawable/diamonds" />
 
     <ImageView
         android:id="@+id/tvCard1"
