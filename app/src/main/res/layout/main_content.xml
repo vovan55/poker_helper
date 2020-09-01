@@ -32,7 +32,7 @@
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="@+id/spCard_2"
         app:layout_constraintTop_toBottomOf="@+id/spCard_2"
-        app:srcCompat="@drawable/clubs" />
+        app:srcCompat="@drawable/pressed_clubs" />
 
     <ImageButton
         android:id="@+id/iBtnDiamonds2"
@@ -149,7 +149,7 @@
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="@+id/iBtnClubs"
         app:layout_constraintTop_toTopOf="@+id/iBtnClubs"
-        app:srcCompat="@drawable/hearts" />
+        app:srcCompat="@drawable/pressed_hearts" />
 
     <ImageButton
         android:id="@+id/iBtnSpades"
@@ -162,7 +162,7 @@
         android:scaleType="centerInside"
         app:layout_constraintStart_toEndOf="@+id/iBtnHearts"
         app:layout_constraintTop_toTopOf="@+id/iBtnHearts"
-        app:srcCompat="@drawable/spades" />
+        app:srcCompat="@drawable/pressed_spades" />
 
     <ImageButton
         android:id="@+id/iBtnDiamonds"
@@ -175,7 +175,7 @@
         android:scaleType="centerInside"
         app:layout_constraintStart_toEndOf="@+id/iBtnClubs"
         app:layout_constraintTop_toTopOf="@+id/iBtnClubs"
-        app:srcCompat="@drawable/diamond" />
+        app:srcCompat="@drawable/pressed_diamond" />
 
     <ImageView
         android:id="@+id/tvCard1"
