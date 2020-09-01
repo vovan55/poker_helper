@@ -21,11 +21,8 @@ import android.widget.Toast;
 import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements NavItemSelectedListener{
-    TextView textCard1, textCard2;
-    String suit, suit_2;
-    String[] card1 = {"2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"};
-    String[] card2 = {"2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"};
-    String[] big_blinds = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
+
+    String suit;
     String[] position = {"EP1", "EP2", "EP3", "MP1", "MP2", "HJ", "CO", "BTN", "SB"};
     Spinner spPos, spCard_1, spCard_2;
     NumberPicker numberPicker;
@@ -59,7 +56,8 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         };
         spBB.setOnItemSelectedListener(itemSelectedListener_bb);*/
 
-        ArrayAdapter<String> adapter_pos = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, position);
+        ArrayAdapter<String> adapter_pos;
+        adapter_pos = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, position);
         adapter_pos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spPos.setAdapter(adapter_pos);
 
@@ -110,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds.setAlpha(0.5f);
         iBtnHearts.setAlpha(0.5f);
         iBtnSpades.setAlpha(0.5f);
-        //Toast.makeText(this, "Зачем ты это нажал трефи?", Toast.LENGTH_SHORT).show();
+        setImage(tvCard1,spCard_1);
     }
     public void onClickHearts(View view)
     {
@@ -119,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds.setAlpha(0.5f);
         iBtnHearts.setAlpha(1.0f);
         iBtnSpades.setAlpha(0.5f);
-        //Toast.makeText(this, "Зачем ты это нажал черви?", Toast.LENGTH_SHORT).show();
+        setImage(tvCard1,spCard_1);
     }
     public void onClickDiamonds(View view)
     {
@@ -128,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds.setAlpha(1.0f);
         iBtnHearts.setAlpha(0.5f);
         iBtnSpades.setAlpha(0.5f);
-        //Toast.makeText(this, "Зачем ты это нажал бубны?", Toast.LENGTH_SHORT).show();
+        setImage(tvCard1,spCard_1);
     }
     public void onClickSpades(View view)
     {
@@ -137,43 +135,43 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds.setAlpha(0.5f);
         iBtnHearts.setAlpha(0.5f);
         iBtnSpades.setAlpha(1.0f);
-        //Toast.makeText(this, "Зачем ты это нажал пики?", Toast.LENGTH_SHORT).show();
+        setImage(tvCard1,spCard_1);
     }
     public void onClickClubs2(View view)
     {
-        suit_2 = "clubs2";
+        suit = "clubs";
         iBtnClubs2.setAlpha(1.0f);
         iBtnDiamonds2.setAlpha(0.5f);
         iBtnHearts2.setAlpha(0.5f);
         iBtnSpades2.setAlpha(0.5f);
-        //Toast.makeText(this, "Зачем ты это нажал трефи?", Toast.LENGTH_SHORT).show();
+        setImage(tvCard2,spCard_2);
     }
     public void onClickHearts2(View view)
     {
-        suit_2 = "hearts2";
+        suit = "hearts";
         iBtnClubs2.setAlpha(0.5f);
         iBtnDiamonds2.setAlpha(0.5f);
         iBtnHearts2.setAlpha(1.0f);
         iBtnSpades2.setAlpha(0.5f);
-        //Toast.makeText(this, "Зачем ты это нажал черви?", Toast.LENGTH_SHORT).show();
+        setImage(tvCard2,spCard_2);
     }
     public void onClickDiamonds2(View view)
     {
-        suit_2 = "diamonds2";
+        suit = "diamonds";
         iBtnClubs2.setAlpha(0.5f);
         iBtnDiamonds2.setAlpha(1.0f);
         iBtnHearts2.setAlpha(0.5f);
         iBtnSpades2.setAlpha(0.5f);
-        //Toast.makeText(this, "Зачем ты это нажал бубны?", Toast.LENGTH_SHORT).show();
+        setImage(tvCard2,spCard_2);
     }
     public void onClickSpades2(View view)
     {
-        suit_2 = "spades2";
+        suit = "spades";
         iBtnClubs2.setAlpha(0.5f);
         iBtnDiamonds2.setAlpha(0.5f);
         iBtnHearts2.setAlpha(0.5f);
         iBtnSpades2.setAlpha(1.0f);
-        //Toast.makeText(this, "Зачем ты это нажал пики?", Toast.LENGTH_SHORT).show();
+        setImage(tvCard2,spCard_2);
     }
 
 
@@ -211,5 +209,20 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
             } catch (Exception ignored) {}
         }
         return null;
+    }
+
+    private void setImage(ImageView im,Spinner spinner)
+    {
+        if(!spinner.getSelectedItem().toString().equals("Выберите карту"))
+        {
+            String imPath = spinner.getSelectedItem().toString() + "_of_" + suit + ".png";
+            im.setImageBitmap(loadBitmapFromAssets(this,imPath));
+        }
+        else
+        {
+            Toast.makeText(this, "Карта не выбрана!", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 }
