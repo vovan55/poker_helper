@@ -2,6 +2,9 @@ package com.pokerhelper.thebest;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +17,8 @@ import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements NavItemSelectedListener{
     TextView textCard1, textCard2;
@@ -31,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         init();
         setupMenu();
 
@@ -81,8 +85,6 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         numberPicker.setMaxValue(20);
         numberPicker.setMinValue(0);
         spPos = (Spinner) findViewById(R.id.spPos);
-        //tvEnterBB = findViewById(R.id.tvEnterBB);
-        //tvEnterPos = findViewById(R.id.tvEnterPos);
         spCard_1 = findViewById(R.id.spCard_1);
         spCard_2 = findViewById(R.id.spCard_2);
         iBtnHearts = findViewById(R.id.iBtnHearts);
@@ -93,8 +95,8 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds2 = findViewById(R.id.iBtnDiamonds2);
         iBtnClubs2 = findViewById(R.id.iBtnClubs2);
         iBtnSpades2 = findViewById(R.id.iBtnSpades2);
-        ImageView tvCard1 = findViewById(R.id.tvCard1);
-        ImageView tvCard2 = findViewById(R.id.tvCard2);
+        tvCard1 = findViewById(R.id.tvCard1);
+        tvCard2 = findViewById(R.id.tvCard2);
         Button btnCalc = findViewById(R.id.btnCalc);
         TextView tvResult = findViewById(R.id.tvResult);
 
@@ -188,5 +190,26 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     @Override
     public void onNavItemSelctedListener(MenuItem item) {
         Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+    }
+        //код для получения Bitmap из assets папки
+    public Bitmap loadBitmapFromAssets(Context context, String path)
+    {
+        InputStream stream = null;
+        try
+        {
+            stream = context.getAssets().open(path);
+            return BitmapFactory.decodeStream(stream);
+        }
+        catch (Exception ignored) {} finally
+        {
+            try
+            {
+                if(stream != null)
+                {
+                    stream.close();
+                }
+            } catch (Exception ignored) {}
+        }
+        return null;
     }
 }
