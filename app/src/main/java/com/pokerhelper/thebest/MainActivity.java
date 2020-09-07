@@ -22,6 +22,7 @@ import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements NavItemSelectedListener{
 
+    String compareLeft, compareRight;
     String suit;
     String[] position = {"EP1", "EP2", "EP3", "MP1", "MP2", "HJ", "CO", "BTN", "SB"};
     Spinner spPos, spCard_1, spCard_2;
@@ -35,26 +36,6 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         setContentView(R.layout.activity_main);
         init();
         setupMenu();
-
-/*        ArrayAdapter<String> adapter_bb = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, big_blinds);
-        adapter_bb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //spBB.setAdapter(adapter_bb);
-
-        AdapterView.OnItemSelectedListener itemSelectedListener_bb = new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                // Получаем выбранный объект
-                String item = (String) parent.getItemAtPosition(position);
-                //tvEnterBB.setText(item);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        };
-        spBB.setOnItemSelectedListener(itemSelectedListener_bb);*/
 
         ArrayAdapter<String> adapter_pos;
         adapter_pos = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, position);
@@ -100,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
 
     }
 
-
     public void onClickClubs(View view)
     {
         suit = "clubs";
@@ -108,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds.setAlpha(0.5f);
         iBtnHearts.setAlpha(0.5f);
         iBtnSpades.setAlpha(0.5f);
-        setImage(tvCard1,spCard_1);
+        setImageLeft(tvCard1,spCard_1);
     }
     public void onClickHearts(View view)
     {
@@ -117,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds.setAlpha(0.5f);
         iBtnHearts.setAlpha(1.0f);
         iBtnSpades.setAlpha(0.5f);
-        setImage(tvCard1,spCard_1);
+        setImageLeft(tvCard1,spCard_1);
     }
     public void onClickDiamonds(View view)
     {
@@ -126,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds.setAlpha(1.0f);
         iBtnHearts.setAlpha(0.5f);
         iBtnSpades.setAlpha(0.5f);
-        setImage(tvCard1,spCard_1);
+        setImageLeft(tvCard1,spCard_1);
     }
     public void onClickSpades(View view)
     {
@@ -135,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds.setAlpha(0.5f);
         iBtnHearts.setAlpha(0.5f);
         iBtnSpades.setAlpha(1.0f);
-        setImage(tvCard1,spCard_1);
+        setImageLeft(tvCard1,spCard_1);
     }
     public void onClickClubs2(View view)
     {
@@ -144,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds2.setAlpha(0.5f);
         iBtnHearts2.setAlpha(0.5f);
         iBtnSpades2.setAlpha(0.5f);
-        setImage(tvCard2,spCard_2);
+        setImageRight(tvCard2,spCard_2);
     }
     public void onClickHearts2(View view)
     {
@@ -153,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds2.setAlpha(0.5f);
         iBtnHearts2.setAlpha(1.0f);
         iBtnSpades2.setAlpha(0.5f);
-        setImage(tvCard2,spCard_2);
+        setImageRight(tvCard2,spCard_2);
     }
     public void onClickDiamonds2(View view)
     {
@@ -162,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds2.setAlpha(1.0f);
         iBtnHearts2.setAlpha(0.5f);
         iBtnSpades2.setAlpha(0.5f);
-        setImage(tvCard2,spCard_2);
+        setImageRight(tvCard2,spCard_2);
     }
     public void onClickSpades2(View view)
     {
@@ -171,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnDiamonds2.setAlpha(0.5f);
         iBtnHearts2.setAlpha(0.5f);
         iBtnSpades2.setAlpha(1.0f);
-        setImage(tvCard2,spCard_2);
+        setImageRight(tvCard2,spCard_2);
     }
 
 
@@ -189,6 +169,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     public void onNavItemSelctedListener(MenuItem item) {
         Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
     }
+
         //код для получения Bitmap из assets папки
     public Bitmap loadBitmapFromAssets(Context context, String path)
     {
@@ -211,12 +192,28 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         return null;
     }
 
-    private void setImage(ImageView im,Spinner spinner)
+    private void setImageLeft(ImageView im,Spinner spinner)
     {
         if(!spinner.getSelectedItem().toString().equals("Выберите карту"))
         {
             String imPath = spinner.getSelectedItem().toString() + "_of_" + suit + ".png";
-            im.setImageBitmap(loadBitmapFromAssets(this,imPath));
+            compareLeft = imPath;
+            if(compareRight != null )
+            {
+                if(compareLeft.equals(compareRight))
+                {
+                    Toast.makeText(this, "Выберите другую карту", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    im.setImageBitmap(loadBitmapFromAssets(this,imPath));
+                }
+            }
+            else
+            {
+                im.setImageBitmap(loadBitmapFromAssets(this,imPath));
+            }
+
         }
         else
         {
@@ -225,4 +222,35 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
 
 
     }
+    private void setImageRight(ImageView im,Spinner spinner)
+    {
+        if(!spinner.getSelectedItem().toString().equals("Выберите карту"))
+        {
+            String imPath = spinner.getSelectedItem().toString() + "_of_" + suit + ".png";
+            compareRight = imPath;
+            if(compareLeft != null )
+            {
+                if(compareRight.equals(compareLeft))
+                {
+                    Toast.makeText(this, "Выберите другую карту", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    im.setImageBitmap(loadBitmapFromAssets(this,imPath));
+                }
+            }
+            else
+            {
+                im.setImageBitmap(loadBitmapFromAssets(this,imPath));
+            }
+
+        }
+        else
+        {
+            Toast.makeText(this, "Карта не выбрана!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
 }
