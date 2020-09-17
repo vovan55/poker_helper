@@ -93,8 +93,11 @@
         android:layout_width="84dp"
         android:layout_height="45dp"
         android:layout_marginStart="108dp"
+        android:gravity="center"
         android:hint="@string/tvResult"
+        android:textColor="#70C312"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/btnCalc"
         app:layout_constraintTop_toTopOf="@+id/btnCalc" />
 

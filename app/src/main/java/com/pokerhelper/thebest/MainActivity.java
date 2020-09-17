@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,9 +22,12 @@ import android.widget.Toast;
 import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements NavItemSelectedListener{
-
+    Button btnCalc;
+    TextView tvResult;
     String compareLeft, compareRight;
-    String suit;
+    String leftCard, rightCard;
+    String renameCard;
+    String suitLeft, suitRight;
     String[] position = {"EP1", "EP2", "EP3", "MP1", "MP2", "HJ", "CO", "BTN", "SB"};
     Spinner spPos, spCard_1, spCard_2;
     NumberPicker numberPicker;
@@ -76,14 +80,14 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         iBtnSpades2 = findViewById(R.id.iBtnSpades2);
         tvCard1 = findViewById(R.id.tvCard1);
         tvCard2 = findViewById(R.id.tvCard2);
-        Button btnCalc = findViewById(R.id.btnCalc);
-        TextView tvResult = findViewById(R.id.tvResult);
+        btnCalc = findViewById(R.id.btnCalc);
+        tvResult = findViewById(R.id.tvResult);
 
     }
 
     public void onClickClubs(View view)
     {
-        suit = "clubs";
+        suitLeft = "clubs";
         iBtnClubs.setAlpha(1.0f);
         iBtnDiamonds.setAlpha(0.5f);
         iBtnHearts.setAlpha(0.5f);
@@ -92,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     }
     public void onClickHearts(View view)
     {
-        suit = "hearts";
+        suitLeft = "hearts";
         iBtnClubs.setAlpha(0.5f);
         iBtnDiamonds.setAlpha(0.5f);
         iBtnHearts.setAlpha(1.0f);
@@ -101,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     }
     public void onClickDiamonds(View view)
     {
-        suit = "diamonds";
+        suitLeft = "diamonds";
         iBtnClubs.setAlpha(0.5f);
         iBtnDiamonds.setAlpha(1.0f);
         iBtnHearts.setAlpha(0.5f);
@@ -110,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     }
     public void onClickSpades(View view)
     {
-        suit = "spades";
+        suitLeft = "spades";
         iBtnClubs.setAlpha(0.5f);
         iBtnDiamonds.setAlpha(0.5f);
         iBtnHearts.setAlpha(0.5f);
@@ -119,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     }
     public void onClickClubs2(View view)
     {
-        suit = "clubs";
+        suitRight = "clubs";
         iBtnClubs2.setAlpha(1.0f);
         iBtnDiamonds2.setAlpha(0.5f);
         iBtnHearts2.setAlpha(0.5f);
@@ -128,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     }
     public void onClickHearts2(View view)
     {
-        suit = "hearts";
+        suitRight = "hearts";
         iBtnClubs2.setAlpha(0.5f);
         iBtnDiamonds2.setAlpha(0.5f);
         iBtnHearts2.setAlpha(1.0f);
@@ -137,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     }
     public void onClickDiamonds2(View view)
     {
-        suit = "diamonds";
+        suitRight = "diamonds";
         iBtnClubs2.setAlpha(0.5f);
         iBtnDiamonds2.setAlpha(1.0f);
         iBtnHearts2.setAlpha(0.5f);
@@ -146,14 +150,13 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     }
     public void onClickSpades2(View view)
     {
-        suit = "spades";
+        suitRight = "spades";
         iBtnClubs2.setAlpha(0.5f);
         iBtnDiamonds2.setAlpha(0.5f);
         iBtnHearts2.setAlpha(0.5f);
         iBtnSpades2.setAlpha(1.0f);
         setImageRight(tvCard2,spCard_2);
     }
-
 
     private void setupMenu() {
         FragmentManager fm = getSupportFragmentManager();
@@ -196,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     {
         if(!spinner.getSelectedItem().toString().equals("Выберите карту"))
         {
-            String imPath = spinner.getSelectedItem().toString() + "_of_" + suit + ".png";
+            String imPath = spinner.getSelectedItem().toString() + "_of_" + suitLeft + ".png";
             compareLeft = imPath;
             if(compareRight != null )
             {
@@ -213,20 +216,18 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
             {
                 im.setImageBitmap(loadBitmapFromAssets(this,imPath));
             }
-
         }
         else
         {
             Toast.makeText(this, "Карта не выбрана!", Toast.LENGTH_SHORT).show();
         }
-
-
     }
+
     private void setImageRight(ImageView im,Spinner spinner)
     {
         if(!spinner.getSelectedItem().toString().equals("Выберите карту"))
         {
-            String imPath = spinner.getSelectedItem().toString() + "_of_" + suit + ".png";
+            String imPath = spinner.getSelectedItem().toString() + "_of_" + suitRight + ".png";
             compareRight = imPath;
             if(compareLeft != null )
             {
@@ -243,14 +244,45 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
             {
                 im.setImageBitmap(loadBitmapFromAssets(this,imPath));
             }
-
         }
         else
         {
             Toast.makeText(this, "Карта не выбрана!", Toast.LENGTH_SHORT).show();
         }
+    }
+    public void onClickCalc(View view)
+    {
+        renameCards(leftCard, rightCard);
 
     }
+
+    public void renameCards(String leftCard, String rightCard)
+    {
+        if(leftCard != null & rightCard != null)
+        {
+            if (suitLeft.equals(suitRight))
+            {
+                leftCard = spCard_1.getSelectedItem().toString();
+                rightCard = spCard_2.getSelectedItem().toString();
+                String renameCard = leftCard + rightCard;
+                if (leftCard.equals(rightCard))
+                {
+
+                }
+                else
+                {
+                    renameCard += "s";
+                }
+            }
+            else
+            {
+                renameCard += "o";
+            }
+        }
+        Log.d("MyLog", "check suit : " + renameCard);
+
+    }
+
 
 
 }
