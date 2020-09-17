@@ -253,36 +253,32 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     public void onClickCalc(View view)
     {
         renameCards(leftCard, rightCard);
-
     }
 
     public void renameCards(String leftCard, String rightCard)
     {
+        leftCard = spCard_1.getSelectedItem().toString();
+        rightCard = spCard_2.getSelectedItem().toString();
+        renameCard = leftCard + rightCard;
+
         if(leftCard != null & rightCard != null)
         {
             if (suitLeft.equals(suitRight))
             {
-                leftCard = spCard_1.getSelectedItem().toString();
-                rightCard = spCard_2.getSelectedItem().toString();
-                String renameCard = leftCard + rightCard;
-                if (leftCard.equals(rightCard))
-                {
-
-                }
-                else
-                {
-                    renameCard += "s";
-                }
+                renameCard += "s";
             }
             else
             {
                 renameCard += "o";
             }
+
+           /* if (leftCard.equals(rightCard))
+            {
+
+            }*/
         }
         Log.d("MyLog", "check suit : " + renameCard);
 
     }
-
-
 
 }
