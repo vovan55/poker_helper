@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ct14_MP1">
+        <item>
+            99
+        </item>
+        <item>
+            TT
+        </item>
+        <item>
+            JJ
+        </item>
+        <item>
+            QQ
+        </item>
+        <item>
+            KK
+        </item>
+        <item>
+            AA
+        </item>
+        <item>
+            A5s
+        </item>
+        <item>
+            ATs
+        </item>
+        <item>
+            AJs
+        </item>
+        <item>
+            AQs
+        </item>
+        <item>
+            AKs
+        </item>
+        <item>
+            KJs
+        </item>
+        <item>
+            KQs
+        </item>
+        <item>
+            QTs
+        </item>
+        <item>
+            QJs
+        </item>
+        <item>
+            JTs
+        </item>
+        <item>
+            AQo
+        </item>
+        <item>
+            AKo
+        </item>
+        <item>
+            KQo
+        </item>
+
+
+    </string-array>
+</resources>

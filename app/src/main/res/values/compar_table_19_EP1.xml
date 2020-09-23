@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ct19_EP1">
+        <item>
+            JJ
+        </item>
+        <item>
+            QQ
+        </item>
+        <item>
+            KK
+        </item>
+        <item>
+            AA
+        </item>
+        <item>
+            ATs
+        </item>
+        <item>
+            AJs
+        </item>
+        <item>
+            AQs
+        </item>
+        <item>
+            AKs
+        </item>
+        <item>
+            A2s
+        </item>
+        <item>
+           A3s
+        </item>
+        <item>
+           A4s
+        </item>
+        <item>
+           A5s
+        </item>
+        <item>
+           AQo
+        </item>
+        <item>
+           AKo
+        </item>
+        <item>
+           KQs
+        </item>
+        <item>
+            KJs
+        </item>
+
+    </string-array>
+</resources>

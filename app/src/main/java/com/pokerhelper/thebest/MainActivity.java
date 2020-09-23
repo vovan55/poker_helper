@@ -3,6 +3,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -20,6 +21,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class MainActivity extends AppCompatActivity implements NavItemSelectedListener{
     Button btnCalc;
@@ -27,12 +31,17 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     String compareLeft, compareRight;
     String leftCard, rightCard;
     String renameCard;
+    String resultFromTable;
+    // Объявляем переменную второго спиннера
+    String pos;
     String suitLeft, suitRight;
-    String[] position = {"EP1", "EP2", "EP3", "MP1", "MP2", "HJ", "CO", "BTN", "SB"};
+    String[] position = {"EP1", "EP2", "MP1", "MP2", "HJ", "CO", "BTN", "SB"};
     Spinner spPos, spCard_1, spCard_2;
+    int bb;
     NumberPicker numberPicker;
     ImageView tvCard1, tvCard2;
     private ImageButton iBtnHearts, iBtnDiamonds, iBtnSpades, iBtnClubs, iBtnHearts2, iBtnDiamonds2, iBtnSpades2, iBtnClubs2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,15 +58,12 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         AdapterView.OnItemSelectedListener itemSelectedListener_pos = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
                 // Получаем выбранный объект
-                String item = (String) parent.getItemAtPosition(position);
+                //String item = (String) parent.getItemAtPosition(position);
                 //tvEnterPos.setText(item);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         };
         spPos.setOnItemSelectedListener(itemSelectedListener_pos);
@@ -66,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     private void init()
     {   numberPicker = (NumberPicker) findViewById(R.id.spBB);
         numberPicker.setMaxValue(20);
-        numberPicker.setMinValue(0);
+        numberPicker.setMinValue(1);
         spPos = (Spinner) findViewById(R.id.spPos);
         spCard_1 = findViewById(R.id.spCard_1);
         spCard_2 = findViewById(R.id.spCard_2);
@@ -250,17 +256,12 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
             Toast.makeText(this, "Карта не выбрана!", Toast.LENGTH_SHORT).show();
         }
     }
-    public void onClickCalc(View view)
-    {
-        renameCards(leftCard, rightCard);
-    }
 
     public void renameCards(String leftCard, String rightCard)
     {
         leftCard = spCard_1.getSelectedItem().toString();
         rightCard = spCard_2.getSelectedItem().toString();
         renameCard = leftCard + rightCard;
-
         if (suitLeft.equals(suitRight))
         {
             renameCard += "s";
@@ -269,7 +270,6 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         {
             renameCard += "o";
         }
-
         if (leftCard.equals(rightCard))
         {
            renameCard = leftCard + rightCard;
@@ -277,5 +277,65 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         Log.d("MyLog", "check suit : " + renameCard);
 
     }
+    public void compareCards( int bb, String pos)
+    {
+        pos = spPos.getSelectedItem().toString();
+        bb = numberPicker.getValue();
+
+        List<String[ ]> myArrays = new ArrayList<>();
+        // записываем результат из таблицы в переменную resultFromTable
+        int posInt = Integer.parseInt(pos);
+        resultFromTable = myArrays.get(bb)[posInt];
+
+        myArrays.add(getResources().getStringArray(R.array.ct20_EP1));
+        myArrays.add(getResources().getStringArray(R.array.ct20_EP2));
+        myArrays.add(getResources().getStringArray(R.array.ct20_MP1));
+        myArrays.add(getResources().getStringArray(R.array.ct20_MP2));
+        myArrays.add(getResources().getStringArray(R.array.ct20_HJ));
+        myArrays.add(getResources().getStringArray(R.array.ct20_CO));
+        myArrays.add(getResources().getStringArray(R.array.ct20_BTN));
+        myArrays.add(getResources().getStringArray(R.array.ct20_SB));
+
+        myArrays.add(getResources().getStringArray(R.array.ct19_EP1));
+        myArrays.add(getResources().getStringArray(R.array.ct19_EP2));
+        myArrays.add(getResources().getStringArray(R.array.ct19_MP1));
+        myArrays.add(getResources().getStringArray(R.array.ct19_MP2));
+        myArrays.add(getResources().getStringArray(R.array.ct19_HJ));
+        myArrays.add(getResources().getStringArray(R.array.ct19_CO));
+        myArrays.add(getResources().getStringArray(R.array.ct19_BTN));
+        myArrays.add(getResources().getStringArray(R.array.ct19_SB));
+
+        myArrays.add(getResources().getStringArray(R.array.ct18_EP1));
+        myArrays.add(getResources().getStringArray(R.array.ct18_EP2));
+        myArrays.add(getResources().getStringArray(R.array.ct18_MP1));
+        myArrays.add(getResources().getStringArray(R.array.ct18_MP2));
+        myArrays.add(getResources().getStringArray(R.array.ct18_HJ));
+        myArrays.add(getResources().getStringArray(R.array.ct18_CO));
+        myArrays.add(getResources().getStringArray(R.array.ct18_BTN));
+        myArrays.add(getResources().getStringArray(R.array.ct18_SB));
+
+        myArrays.add(getResources().getStringArray(R.array.ct17_EP1));
+        myArrays.add(getResources().getStringArray(R.array.ct17_EP2));
+        myArrays.add(getResources().getStringArray(R.array.ct17_MP1));
+        myArrays.add(getResources().getStringArray(R.array.ct17_MP2));
+        myArrays.add(getResources().getStringArray(R.array.ct17_HJ));
+        myArrays.add(getResources().getStringArray(R.array.ct17_CO));
+        myArrays.add(getResources().getStringArray(R.array.ct17_BTN));
+        myArrays.add(getResources().getStringArray(R.array.ct17_SB));
+    }
+    public void onClickCalc(View view)
+    {
+        //renameCards(leftCard, rightCard);
+        if (renameCard.equals(resultFromTable))
+        {
+            tvResult.setText("PUSH");
+        }
+        else
+        {
+            tvResult.setText("FOLD");
+        }
+        Log.d("MyLog", "check suit : " + renameCard);
+    }
+
 
 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ct13_EP2">
+        <item>
+            TT
+        </item>
+        <item>
+            JJ
+        </item>
+        <item>
+            QQ
+        </item>
+        <item>
+            KK
+        </item>
+        <item>
+            AA
+        </item>
+        <item>
+            ATs
+        </item>
+        <item>
+            AJs
+        </item>
+        <item>
+            AQs
+        </item>
+        <item>
+            AKs
+        </item>
+        <item>
+            KJs
+        </item>
+        <item>
+            KQs
+        </item>
+        <item>
+            QJs
+        </item>
+        <item>
+            AJo
+        </item>
+        <item>
+            AQo
+        </item>
+        <item>
+            AKo
+        </item>
+
+
+    </string-array>
+</resources>
