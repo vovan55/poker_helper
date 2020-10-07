@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="ct03_EP2">
+    <string-array name="ct02_EP1">
         <item>
             22
         </item>
@@ -77,6 +77,24 @@
             AKs
         </item>
         <item>
+            A2s
+        </item>
+        <item>
+           A3s
+        </item>
+        <item>
+           A4s
+        </item>
+        <item>
+           A5s
+        </item>
+        <item>
+            K4s
+        </item>
+        <item>
+            K5s
+        </item>
+        <item>
             K6s
         </item>
         <item>
@@ -98,6 +116,9 @@
             KQs
         </item>
         <item>
+            Q8s
+        </item>
+        <item>
             Q9s
         </item>
         <item>
@@ -107,16 +128,34 @@
             QJs
         </item>
         <item>
+            JTs
+        </item>
+        <item>
             J9s
         </item>
         <item>
-            JTs
+            J8s
         </item>
         <item>
             T9s
         </item>
         <item>
+            T8s
+        </item>
+        <item>
+            98s
+        </item>
+        <item>
+            A3o
+        </item>
+        <item>
+            A4o
+        </item>
+        <item>
             A5o
+        </item>
+        <item>
+            A6o
         </item>
         <item>
             A7o
@@ -149,7 +188,17 @@
             KTo
         </item>
         <item>
+            K9o
+        </item>
+        <item>
+            QTo
+        </item>
+        <item>
             QJo
+        </item>
+        <item>
+            JTo
         </item>
     </string-array>
 </resources>
+

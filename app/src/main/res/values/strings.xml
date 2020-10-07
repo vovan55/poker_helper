@@ -9,7 +9,7 @@
     <string name="enter_position">Ваша позиция</string>
     <string name="spCard_1">Выберите карту 1</string>
     <string name="spCard_2">Выберите карту 2</string>
-    <string name="tvResult">Вывод результата</string>
+    <string name="tvResult">Результат</string>
     <string name="way_to_win">Путь к победе!</string>
     <string name="calculate">Расчет</string>
     <string name="iBtnClubs2">icon clubs 2</string>
@@ -22,4 +22,5 @@
     <string name="iBtnSplades">icon splades</string>
     <string name="tvCard1">show card 1</string>
     <string name="tvCard2">show card 2</string>
+
 </resources>

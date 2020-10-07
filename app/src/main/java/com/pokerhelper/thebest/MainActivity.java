@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.icu.text.RelativeDateTimeFormatter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -21,11 +23,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class MainActivity extends AppCompatActivity implements NavItemSelectedListener{
+    HashMap hashMap;
+    private static final String TAG = "MyApp";
     Button btnCalc;
     TextView tvResult;
     String compareLeft, compareRight;
@@ -36,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     String pos;
     String suitLeft, suitRight;
     String[] position = {"EP1", "EP2", "MP1", "MP2", "HJ", "CO", "BTN", "SB"};
+    //int position [] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
     Spinner spPos, spCard_1, spCard_2;
     int bb;
     NumberPicker numberPicker;
@@ -88,7 +96,6 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         tvCard2 = findViewById(R.id.tvCard2);
         btnCalc = findViewById(R.id.btnCalc);
         tvResult = findViewById(R.id.tvResult);
-
     }
 
     public void onClickClubs(View view)
@@ -256,7 +263,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
             Toast.makeText(this, "Карта не выбрана!", Toast.LENGTH_SHORT).show();
         }
     }
-
+    // Переименуем карты в текст
     public void renameCards(String leftCard, String rightCard)
     {
         leftCard = spCard_1.getSelectedItem().toString();
@@ -274,68 +281,228 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         {
            renameCard = leftCard + rightCard;
         }
-        Log.d("MyLog", "check suit : " + renameCard);
-
+        //Log.d("MyLog", "check suit : " + renameCard);
     }
-    public void compareCards( int bb, String pos)
-    {
+    public void compareCards()
+    {   // Записываем позицию из спиннера выбора позиции
         pos = spPos.getSelectedItem().toString();
+        //Log.d("MyLog", "check result position : " + pos);
+
+        // Переводим текстовое значение спиннера позиции в число
+        //int posInt = Integer.parseInt(pos);
+
+        // Записываем данные из NumberPicker
         bb = numberPicker.getValue();
 
-        List<String[ ]> myArrays = new ArrayList<>();
-        // записываем результат из таблицы в переменную resultFromTable
-        int posInt = Integer.parseInt(pos);
-        resultFromTable = myArrays.get(bb)[posInt];
+        // Присваиваем каждой позиции её числовое значение
+        hashMap = new HashMap<String, Integer>();
+        hashMap.put("1_EP1", R.array.ct01_EP1);
+        hashMap.put("1_EP2", R.array.ct01_EP2);
+        hashMap.put("1_MP1", R.array.ct01_MP1);
+        hashMap.put("1_MP2", R.array.ct01_MP2);
+        hashMap.put("1_HJ", R.array.ct01_HJ);
+        hashMap.put("1_CO", R.array.ct01_CO);
+        hashMap.put("1_BTN", R.array.ct01_BTN);
+        hashMap.put("1_SB", R.array.ct01_SB);
 
-        myArrays.add(getResources().getStringArray(R.array.ct20_EP1));
-        myArrays.add(getResources().getStringArray(R.array.ct20_EP2));
-        myArrays.add(getResources().getStringArray(R.array.ct20_MP1));
-        myArrays.add(getResources().getStringArray(R.array.ct20_MP2));
-        myArrays.add(getResources().getStringArray(R.array.ct20_HJ));
-        myArrays.add(getResources().getStringArray(R.array.ct20_CO));
-        myArrays.add(getResources().getStringArray(R.array.ct20_BTN));
-        myArrays.add(getResources().getStringArray(R.array.ct20_SB));
+        hashMap.put("2_EP1", R.array.ct02_EP1);
+        hashMap.put("2_EP2", R.array.ct02_EP2);
+        hashMap.put("2_MP1", R.array.ct02_MP1);
+        hashMap.put("2_MP2", R.array.ct02_MP2);
+        hashMap.put("2_HJ", R.array.ct02_HJ);
+        hashMap.put("2_CO", R.array.ct02_CO);
+        hashMap.put("2_BTN", R.array.ct02_BTN);
+        hashMap.put("2_SB", R.array.ct02_SB);
 
-        myArrays.add(getResources().getStringArray(R.array.ct19_EP1));
-        myArrays.add(getResources().getStringArray(R.array.ct19_EP2));
-        myArrays.add(getResources().getStringArray(R.array.ct19_MP1));
-        myArrays.add(getResources().getStringArray(R.array.ct19_MP2));
-        myArrays.add(getResources().getStringArray(R.array.ct19_HJ));
-        myArrays.add(getResources().getStringArray(R.array.ct19_CO));
-        myArrays.add(getResources().getStringArray(R.array.ct19_BTN));
-        myArrays.add(getResources().getStringArray(R.array.ct19_SB));
+        hashMap.put("3_EP1", R.array.ct03_EP1);
+        hashMap.put("3_EP2", R.array.ct03_EP2);
+        hashMap.put("3_MP1", R.array.ct03_MP1);
+        hashMap.put("3_MP2", R.array.ct03_MP2);
+        hashMap.put("3_HJ", R.array.ct03_HJ);
+        hashMap.put("3_CO", R.array.ct03_CO);
+        hashMap.put("3_BTN", R.array.ct03_BTN);
+        hashMap.put("3_SB", R.array.ct03_SB);
 
-        myArrays.add(getResources().getStringArray(R.array.ct18_EP1));
-        myArrays.add(getResources().getStringArray(R.array.ct18_EP2));
-        myArrays.add(getResources().getStringArray(R.array.ct18_MP1));
-        myArrays.add(getResources().getStringArray(R.array.ct18_MP2));
-        myArrays.add(getResources().getStringArray(R.array.ct18_HJ));
-        myArrays.add(getResources().getStringArray(R.array.ct18_CO));
-        myArrays.add(getResources().getStringArray(R.array.ct18_BTN));
-        myArrays.add(getResources().getStringArray(R.array.ct18_SB));
+        hashMap.put("4_EP1", R.array.ct04_EP1);
+        hashMap.put("4_EP2", R.array.ct04_EP2);
+        hashMap.put("4_MP1", R.array.ct04_MP1);
+        hashMap.put("4_MP2", R.array.ct04_MP2);
+        hashMap.put("4_HJ", R.array.ct04_HJ);
+        hashMap.put("4_CO", R.array.ct04_CO);
+        hashMap.put("4_BTN", R.array.ct04_BTN);
+        hashMap.put("4_SB", R.array.ct04_SB);
 
-        myArrays.add(getResources().getStringArray(R.array.ct17_EP1));
-        myArrays.add(getResources().getStringArray(R.array.ct17_EP2));
-        myArrays.add(getResources().getStringArray(R.array.ct17_MP1));
-        myArrays.add(getResources().getStringArray(R.array.ct17_MP2));
-        myArrays.add(getResources().getStringArray(R.array.ct17_HJ));
-        myArrays.add(getResources().getStringArray(R.array.ct17_CO));
-        myArrays.add(getResources().getStringArray(R.array.ct17_BTN));
-        myArrays.add(getResources().getStringArray(R.array.ct17_SB));
+        hashMap.put("5_EP1", R.array.ct05_EP1);
+        hashMap.put("5_EP2", R.array.ct05_EP2);
+        hashMap.put("5_MP1", R.array.ct05_MP1);
+        hashMap.put("5_MP2", R.array.ct05_MP2);
+        hashMap.put("5_HJ", R.array.ct05_HJ);
+        hashMap.put("5_CO", R.array.ct05_CO);
+        hashMap.put("5_BTN", R.array.ct05_BTN);
+        hashMap.put("5_SB", R.array.ct05_SB);
+
+        hashMap.put("6_EP1", R.array.ct06_EP1);
+        hashMap.put("6_EP2", R.array.ct06_EP2);
+        hashMap.put("6_MP1", R.array.ct06_MP1);
+        hashMap.put("6_MP2", R.array.ct06_MP2);
+        hashMap.put("6_HJ", R.array.ct06_HJ);
+        hashMap.put("6_CO", R.array.ct06_CO);
+        hashMap.put("6_BTN", R.array.ct06_BTN);
+        hashMap.put("6_SB", R.array.ct06_SB);
+
+        hashMap.put("7_EP1", R.array.ct07_EP1);
+        hashMap.put("7_EP2", R.array.ct07_EP2);
+        hashMap.put("7_MP1", R.array.ct07_MP1);
+        hashMap.put("7_MP2", R.array.ct07_MP2);
+        hashMap.put("7_HJ", R.array.ct07_HJ);
+        hashMap.put("7_CO", R.array.ct07_CO);
+        hashMap.put("7_BTN", R.array.ct07_BTN);
+        hashMap.put("7_SB", R.array.ct07_SB);
+
+        hashMap.put("8_EP1", R.array.ct08_EP1);
+        hashMap.put("8_EP2", R.array.ct08_EP2);
+        hashMap.put("8_MP1", R.array.ct08_MP1);
+        hashMap.put("8_MP2", R.array.ct08_MP2);
+        hashMap.put("8_HJ", R.array.ct08_HJ);
+        hashMap.put("8_CO", R.array.ct08_CO);
+        hashMap.put("8_BTN", R.array.ct08_BTN);
+        hashMap.put("8_SB", R.array.ct08_SB);
+
+        hashMap.put("9_EP1", R.array.ct09_EP1);
+        hashMap.put("9_EP2", R.array.ct09_EP2);
+        hashMap.put("9_MP1", R.array.ct09_MP1);
+        hashMap.put("9_MP2", R.array.ct09_MP2);
+        hashMap.put("9_HJ", R.array.ct09_HJ);
+        hashMap.put("9_CO", R.array.ct09_CO);
+        hashMap.put("9_BTN", R.array.ct09_BTN);
+        hashMap.put("9_SB", R.array.ct09_SB);
+
+        hashMap.put("10_EP1", R.array.ct10_EP1);
+        hashMap.put("10_EP2", R.array.ct10_EP2);
+        hashMap.put("10_MP1", R.array.ct10_MP1);
+        hashMap.put("10_MP2", R.array.ct10_MP2);
+        hashMap.put("10_HJ", R.array.ct10_HJ);
+        hashMap.put("10_CO", R.array.ct10_CO);
+        hashMap.put("10_BTN", R.array.ct10_BTN);
+        hashMap.put("10_SB", R.array.ct10_SB);
+
+        hashMap.put("11_EP1", R.array.ct11_EP1);
+        hashMap.put("11_EP2", R.array.ct11_EP2);
+        hashMap.put("11_MP1", R.array.ct11_MP1);
+        hashMap.put("11_MP2", R.array.ct11_MP2);
+        hashMap.put("11_HJ", R.array.ct11_HJ);
+        hashMap.put("11_CO", R.array.ct11_CO);
+        hashMap.put("11_BTN", R.array.ct11_BTN);
+        hashMap.put("11_SB", R.array.ct11_SB);
+
+        hashMap.put("12_EP1", R.array.ct12_EP1);
+        hashMap.put("12_EP2", R.array.ct12_EP2);
+        hashMap.put("12_MP1", R.array.ct12_MP1);
+        hashMap.put("12_MP2", R.array.ct12_MP2);
+        hashMap.put("12_HJ", R.array.ct12_HJ);
+        hashMap.put("12_CO", R.array.ct12_CO);
+        hashMap.put("12_BTN", R.array.ct12_BTN);
+        hashMap.put("12_SB", R.array.ct12_SB);
+
+        hashMap.put("13_EP1", R.array.ct13_EP1);
+        hashMap.put("13_EP2", R.array.ct13_EP2);
+        hashMap.put("13_MP1", R.array.ct13_MP1);
+        hashMap.put("13_MP2", R.array.ct13_MP2);
+        hashMap.put("13_HJ", R.array.ct13_HJ);
+        hashMap.put("13_CO", R.array.ct13_CO);
+        hashMap.put("13_BTN", R.array.ct13_BTN);
+        hashMap.put("13_SB", R.array.ct13_SB);
+
+        hashMap.put("14_EP1", R.array.ct14_EP1);
+        hashMap.put("14_EP2", R.array.ct14_EP2);
+        hashMap.put("14_MP1", R.array.ct14_MP1);
+        hashMap.put("14_MP2", R.array.ct14_MP2);
+        hashMap.put("14_HJ", R.array.ct14_HJ);
+        hashMap.put("14_CO", R.array.ct14_CO);
+        hashMap.put("14_BTN", R.array.ct14_BTN);
+        hashMap.put("14_SB", R.array.ct14_SB);
+
+        hashMap.put("15_EP1", R.array.ct15_EP1);
+        hashMap.put("15_EP2", R.array.ct15_EP2);
+        hashMap.put("15_MP1", R.array.ct15_MP1);
+        hashMap.put("15_MP2", R.array.ct15_MP2);
+        hashMap.put("15_HJ", R.array.ct15_HJ);
+        hashMap.put("15_CO", R.array.ct15_CO);
+        hashMap.put("15_BTN", R.array.ct15_BTN);
+        hashMap.put("15_SB", R.array.ct15_SB);
+
+        hashMap.put("16_EP1", R.array.ct16_EP1);
+        hashMap.put("16_EP2", R.array.ct16_EP2);
+        hashMap.put("16_MP1", R.array.ct16_MP1);
+        hashMap.put("16_MP2", R.array.ct16_MP2);
+        hashMap.put("16_HJ", R.array.ct16_HJ);
+        hashMap.put("16_CO", R.array.ct16_CO);
+        hashMap.put("16_BTN", R.array.ct16_BTN);
+        hashMap.put("16_SB", R.array.ct16_SB);
+
+        hashMap.put("17_EP1", R.array.ct17_EP1);
+        hashMap.put("17_EP2", R.array.ct17_EP2);
+        hashMap.put("17_MP1", R.array.ct17_MP1);
+        hashMap.put("17_MP2", R.array.ct17_MP2);
+        hashMap.put("17_HJ", R.array.ct17_HJ);
+        hashMap.put("17_CO", R.array.ct17_CO);
+        hashMap.put("17_BTN", R.array.ct17_BTN);
+        hashMap.put("17_SB", R.array.ct17_SB);
+
+        hashMap.put("18_EP1", R.array.ct18_EP1);
+        hashMap.put("18_EP2", R.array.ct18_EP2);
+        hashMap.put("18_MP1", R.array.ct18_MP1);
+        hashMap.put("18_MP2", R.array.ct18_MP2);
+        hashMap.put("18_HJ", R.array.ct18_HJ);
+        hashMap.put("18_CO", R.array.ct18_CO);
+        hashMap.put("18_BTN", R.array.ct18_BTN);
+        hashMap.put("18_SB", R.array.ct18_SB);
+
+        hashMap.put("19_EP1", R.array.ct19_EP1);
+        hashMap.put("19_EP2", R.array.ct19_EP2);
+        hashMap.put("19_MP1", R.array.ct19_MP1);
+        hashMap.put("19_MP2", R.array.ct19_MP2);
+        hashMap.put("19_HJ", R.array.ct19_HJ);
+        hashMap.put("19_CO", R.array.ct19_CO);
+        hashMap.put("19_BTN", R.array.ct19_BTN);
+        hashMap.put("19_SB", R.array.ct19_SB);
+
+        hashMap.put("20_EP1", R.array.ct20_EP1);
+        hashMap.put("20_EP2", R.array.ct20_EP2);
+        hashMap.put("20_MP1", R.array.ct20_MP1);
+        hashMap.put("20_MP2", R.array.ct20_MP2);
+        hashMap.put("20_HJ", R.array.ct20_HJ);
+        hashMap.put("20_CO", R.array.ct20_CO);
+        hashMap.put("20_BTN", R.array.ct20_BTN);
+        hashMap.put("20_SB", R.array.ct20_SB);
+
     }
-    public void onClickCalc(View view)
-    {
-        //renameCards(leftCard, rightCard);
-        if (renameCard.equals(resultFromTable))
-        {
-            tvResult.setText("PUSH");
-        }
-        else
-        {
-            tvResult.setText("FOLD");
-        }
-        Log.d("MyLog", "check suit : " + renameCard);
-    }
 
+   public void onClickCalc(View view){
 
+       renameCards(leftCard, rightCard);
+       compareCards();
+
+       String resultPosition = bb  + "_" +  pos;
+       //Log.d("MyLog", "check result position : " + resultPosition);
+
+       String[] resultCardArray = getResources().getStringArray((int) hashMap.get(resultPosition));
+       boolean isPush = false;
+
+       for(String resultFromArray : resultCardArray){
+           if(resultFromArray.equals(renameCard))
+           {
+               isPush = true;
+               break;
+           }
+       }
+       if(isPush){
+           tvResult.setText("PUSH");
+           tvResult.setTextColor(Color.GREEN);
+           tvResult.setTextSize(20);
+       } else{
+           tvResult.setText("FOLD");
+           tvResult.setTextColor(Color.RED);
+       }
+   }
 }
