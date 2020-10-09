@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
             stream = context.getAssets().open(path);
             return BitmapFactory.decodeStream(stream);
         }
-        // todo рекомендуется игнорировать исключения
+        // todo рекомендуется не игнорировать исключения
         catch (Exception ignored) {} finally
         {
             try
