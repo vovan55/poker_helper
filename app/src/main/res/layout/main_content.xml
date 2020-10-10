@@ -75,6 +75,7 @@
         app:layout_constraintTop_toTopOf="@+id/iBtnHearts2"
         app:srcCompat="@drawable/spades" />
 
+    <!--  todo из id непонятно что это  -->
     <NumberPicker
         android:id="@+id/spBB"
         android:layout_width="80dp"
@@ -179,6 +180,7 @@
         app:layout_constraintTop_toTopOf="@+id/iBtnClubs"
         app:srcCompat="@drawable/diamonds" />
 
+    <!--  todo называем iv, tv это от текст  -->
     <ImageView
         android:id="@+id/tvCard1"
         android:layout_width="131dp"

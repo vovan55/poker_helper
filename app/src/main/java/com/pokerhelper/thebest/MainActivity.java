@@ -31,8 +31,11 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 public class MainActivity extends AppCompatActivity implements NavItemSelectedListener{
+    // todo если хешмапа нужна в виде поля как здесь, ее нужно типизировать
+    // todo HashMap<String, Integer> hashMap;
     HashMap hashMap;
     private static final String TAG = "MyApp";
+    // todo все поля которые не нужны извне нужно сделать минимально возможным модификатором доступа (private, protected)
     Button btnCalc;
     TextView tvResult;
     String compareLeft, compareRight;
@@ -40,8 +43,10 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
     String renameCard;
     String resultFromTable;
     // Объявляем переменную второго спиннера
+    // todo названия(особенно полей) нужно давать читаемые и понятные, потом очень быстро забывается
     String pos;
     String suitLeft, suitRight;
+    // todo в поле нужно выносить переменные, которые используются в разных местах. position используется в 1 методе, поэтому убираем туда
     String[] position = {"EP1", "EP2", "MP1", "MP2", "HJ", "CO", "BTN", "SB"};
     //int position [] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
     Spinner spPos, spCard_1, spCard_2;
@@ -77,6 +82,8 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         spPos.setOnItemSelectedListener(itemSelectedListener_pos);
     }
 
+    // todo фигурная скобка в java практике идет в той же строчке, где и название метода
+    // todo так же в Idea или Android Studio есть автоформатирование кода по ctrl-alt-L
     private void init()
     {   numberPicker = (NumberPicker) findViewById(R.id.spBB);
         numberPicker.setMaxValue(20);
@@ -98,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         tvResult = findViewById(R.id.tvResult);
     }
 
+    // todo дальше идут однотипные методы, которые нужно объединить в один
     public void onClickClubs(View view)
     {
         suitLeft = "clubs";
@@ -189,12 +197,15 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         //код для получения Bitmap из assets папки
     public Bitmap loadBitmapFromAssets(Context context, String path)
     {
+        // todo нечитаемое форматирование, нужно привыкать к общепринятому стандарту
         InputStream stream = null;
+        // todo в Java есть try with resources, советую изучить как это работает
         try
         {
             stream = context.getAssets().open(path);
             return BitmapFactory.decodeStream(stream);
         }
+        // todo рекомендуется не игнорировать исключения
         catch (Exception ignored) {} finally
         {
             try
@@ -208,6 +219,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         return null;
     }
 
+    // todo setImageLeft & setImageRight так похожи, что лучше объединить
     private void setImageLeft(ImageView im,Spinner spinner)
     {
         if(!spinner.getSelectedItem().toString().equals("Выберите карту"))
@@ -294,6 +306,9 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
         // Записываем данные из NumberPicker
         bb = numberPicker.getValue();
 
+        // todo 1) вроде бы данные не меняются, их не нужно собирать при каждом нажатии, можно один раз на старте
+        // todo 2) это стоит вынести в другой класс, в Activity все-таки работа с вьюхами, а дату убрать в другое место
+        // todo 3) вообще вот эти данные это хороший повод познакомиться с БД, можно начать с SQL и работать с локальной базой
         // Присваиваем каждой позиции её числовое значение
         hashMap = new HashMap<String, Integer>();
         hashMap.put("1_EP1", R.array.ct01_EP1);
@@ -497,6 +512,7 @@ public class MainActivity extends AppCompatActivity implements NavItemSelectedLi
            }
        }
        if(isPush){
+           // todo стоит читать и гуглить подсказки студии, например тексты как здесь стоит выносить в ресурсы
            tvResult.setText("PUSH");
            tvResult.setTextColor(Color.GREEN);
            tvResult.setTextSize(20);
